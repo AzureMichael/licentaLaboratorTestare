@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="createTables" author="Stefanescu Mihai">
+        <createTable tableName="SHOWS">
+            <column name="ID" type="INTEGER" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="TITLE" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="ERA" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="DIRECTOR" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="SCENOGRAPH" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="IS_PREMIERE" type="NUMBER(2)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="NUMBER_OF_REPETITIONS" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
+            <column name="COST" type="NUMERIC(18,0)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+        <createTable tableName="YEARLY_COSTS">
+            <column name="ID" type="INTEGER" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="YEAR" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
+            <column name="CATEGORY" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="TYPE" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="COST" type="NUMERIC(18,0)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+        <createTable tableName="AVERAGE_COST_PER_SHOW">
+            <column name="ID" type="INTEGER" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="CATEGORY" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="TYPE" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column type="INTEGER" name="YEAR">
+                <constraints nullable="true"/>
+            </column>
+            <column name="COST" type="NUMERIC(18,0)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
